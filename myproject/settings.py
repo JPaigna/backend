@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-cy2m=ck47*anjtf0c_gmw=fog1yxm0t!#+ad($-(k=8q%b5n(f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend-gg62.onrender.com']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'backend-gg62.onrender.com']
 
 # Application definition
 
@@ -43,9 +42,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.common.CommonMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',  # Add comma here
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,6 +55,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "https://frontend-todoroki.netlify.app",  # Allow frontend access
 ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 ROOT_URLCONF = 'myproject.urls'
