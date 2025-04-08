@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'myapp',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [  
@@ -56,6 +56,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "https://frontend-todoroki.netlify.app",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 
