@@ -26,7 +26,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from myapp.views import TaskViewSet
 
 router = DefaultRouter()
-router.register(r'myapp', TaskViewSet)
+router.register('myapp', TaskViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
