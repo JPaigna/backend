@@ -36,13 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
+    'rest_framework', 
     'myapp',
+    'corsheaders'
 ]
 
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  
+MIDDLEWARE = [  
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,10 +51,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 CORS_ALLOWED_ORIGINS = [
-    "https://frontend-todoroki.netlify.app",  # Allow frontend access
+    "https://frontend-todoroki.netlify.app",
 ]
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 
