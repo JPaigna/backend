@@ -17,18 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-import sys
-import os
+from rest_framework.authtoken.views import obtain_auth_token
+from myapp.views import TaskViewSet, SecureHelloView
 
-# Add the root project folder to sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from myapp.views import TaskViewSet
-
+# Set up the DRF router
 router = DefaultRouter()
-router.register('myapp', TaskViewSet)
+router.register('tasks', TaskViewSet)  # 'tasks' will be the endpoint, e.g., /api/tasks/
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls)),  
+    path('api/todos/', include('myapp.urls')),  
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('access-denied/', SecureHelloView.as_view(), name='access-denied'),
 ]
+
